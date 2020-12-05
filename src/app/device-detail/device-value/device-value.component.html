@@ -1,0 +1,8 @@
+<h4 class="w3-bar-item">{{value?.caption}}:</h4>
+<!-- <ng-template #elseBlock> -->
+<h4 class="w3-bar-item">{{value?.value}}</h4>
+<!-- </ng-template> -->
+<!-- <div *ngIf="value.changeAction; else elseBlock" class="w3-bar-item w3-left"> -->
+<div *ngIf="value?.changeAction" class="w3-bar-item w3-left">
+    <app-device-action [changeAction]="value?.changeAction" [valueType]="value?.type" (valueChanged)="onUserValueChange($event)"></app-device-action>
+</div>

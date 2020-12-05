@@ -1,0 +1,9 @@
+<div *ngIf="valueType === 'number'">
+    <app-number-input [changeAction]="changeAction" (valueChanged)="valueChanged?.next($event)"></app-number-input>
+</div>
+<div *ngIf="valueType === 'enum'">
+    <app-enum-input [changeAction]="changeAction" (valueChanged)="valueChanged?.next($event)"></app-enum-input>
+</div>
+<div *ngIf="valueType === 'color'">
+    <app-color-input [changeAction]="changeAction" (valueChanged)="valueChanged?.next($event)"></app-color-input>
+</div>
