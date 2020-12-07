@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Device } from '../models/device';
-import { DevicesProviderService } from '../services/devices-provider.service';
+import { IDevice } from '../interfaces/i-device';
+import { DeviceHandleService } from '../services/device-handle.service';
 
 @Component({
   selector: 'app-device-viewer',
@@ -8,16 +8,16 @@ import { DevicesProviderService } from '../services/devices-provider.service';
   styleUrls: ['./device-viewer.component.scss']
 })
 export class DeviceViewerComponent implements OnInit {
-  devicesProvider: DevicesProviderService;
 
-  devices: Device[] = [];
+  devices: IDevice[] = [];
 
-  constructor(devicesProvider: DevicesProviderService) {
-    this.devicesProvider = devicesProvider;
-   }
+  constructor(private devicesProvider: DeviceHandleService) {
+  }
 
   ngOnInit(): void {
-    this.devicesProvider.getDevices().subscribe(devices => this.devices = devices);
+    this.devicesProvider.getAllDevices().subscribe(
+      devices => this.devices = devices
+    );
   }
 
 }

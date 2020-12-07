@@ -9,7 +9,7 @@ import { IDevice } from '../interfaces/i-device';
 export class DeviceDetailComponent implements OnInit {
 
   @Input()
-  device?: IDevice;
+  device: IDevice;
 
   constructor() { }
 

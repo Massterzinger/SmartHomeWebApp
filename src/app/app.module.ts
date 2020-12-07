@@ -13,7 +13,8 @@ import { EnumInputComponent } from './input-components/enum-input/enum-input.com
 import { DeviceActionComponent } from './device-detail/device-action/device-action.component';
 import { DeviceDetailComponent } from './device-detail/device-detail.component';
 import { DeviceValueComponent } from './device-detail/device-value/device-value.component';
-import { ValueChange } from './input-components/enum-input/ValueChange';
+import { DeviceHandleService } from './services/device-handle.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { ValueChange } from './input-components/enum-input/ValueChange';
     DeviceValueComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DeviceHandleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

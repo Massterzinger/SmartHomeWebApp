@@ -1,3 +1,3 @@
-<input [(ngModel)]="changeAction!.value" type="number" 
-    min="{{changeAction!.applicables?.min}}"
-    max="{{changeAction!.applicables?.max}}" (ngModelChange)="valueChanged?.next($event)">
+<input [(ngModel)]="changeAction.value" type="number" 
+    min="{{changeAction.applicables?.min}}"
+    max="{{changeAction.applicables?.max}}" (ngModelChange)="valueChanged.next($event)">

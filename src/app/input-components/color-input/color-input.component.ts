@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IDeviceAction } from 'src/app/interfaces/i-device';
-import { ValueChange } from '../enum-input/ValueChange';
+import { ValueChange } from '../ValueChange';
 
 @Component({
   selector: 'app-color-input',
@@ -8,9 +7,6 @@ import { ValueChange } from '../enum-input/ValueChange';
   styleUrls: ['./color-input.component.scss']
 })
 export class ColorInputComponent extends ValueChange implements OnInit {
-
-  @Input()
-  changeAction?: IDeviceAction;
 
   constructor() {
     super();
