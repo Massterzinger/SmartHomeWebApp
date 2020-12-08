@@ -1,6 +1,9 @@
 <div class="w3-container w3-content">
-    <p class="w3-opacity"><b>Project description</b></p>
+  <div *ngFor="let post of posts">
+
+    <p class="w3-opacity"><b>{{post.caption}}</b></p>
     <div class="w3-panel w3-white w3-card w3-display-container">
-        <p>Here will be description<br/>Someday</p>
+      <pre>{{post.text}}</pre>
     </div>
+  </div>
 </div>

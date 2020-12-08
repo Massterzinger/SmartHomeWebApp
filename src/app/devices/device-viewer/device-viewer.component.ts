@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IDevice } from '../interfaces/i-device';
-import { DeviceHandleService } from '../services/device-handle.service';
+import { IDevice } from 'src/app/interfaces/i-device';
+import { DeviceHandleService } from 'src/app/services/device-handle.service';
 
 @Component({
   selector: 'app-device-viewer',

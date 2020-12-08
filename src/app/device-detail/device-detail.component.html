@@ -1,12 +1,12 @@
 <div class="w3-card-4">
-    <header class="w3-container w3-blue">
-        <h1>{{device?.name}}</h1>
-    </header>
-    <div class="w3-container w3-white">
-        <ul class="w3-ul">
-            <li *ngFor="let value of device?.values" class="w3-bar">
-                <app-device-value [value]="value" [deviceId]="device.id"></app-device-value>
-            </li>
-        </ul>
-    </div>
+  <header class="w3-container w3-blue">
+    <h1>{{device?.name}}</h1>
+  </header>
+  <div class="w3-container w3-white">
+    <ul class="w3-ul">
+      <li *ngFor="let value of device?.values" class="w3-bar">
+        <app-device-value [value]="value" [deviceId]="device.id"></app-device-value>
+      </li>
+    </ul>
+  </div>
 </div>

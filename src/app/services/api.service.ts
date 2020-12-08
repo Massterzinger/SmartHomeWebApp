@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from, Observable, scheduled, throwError } from 'rxjs';
+import { from, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { ServerConfig } from '../configs/server-config';
 import { PathHelper } from '../helpers/path-helper';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class ApiService {
 
   setServerUrl(url: string): Observable<boolean> {
     return this.http
-      .get<boolean>(PathHelper.joinParams(url, 'checkApi'))
+      .get<boolean>(PathHelper.joinParams(url, ServerConfig.endpoints.checkApi))
       .pipe(map(data => {
         if (data) {
           this.serverUrl = url;
@@ -23,9 +24,24 @@ export class ApiService {
       );
   }
 
-  get<T>(path: string): Observable<T> {
+  public delete(path: string): Observable<any> {
     if (this.serverUrl) {
-      return this.http.get<T>(PathHelper.joinParams(this.serverUrl, path));
+      return this.http.delete(PathHelper.joinParams(this.serverUrl, path));
+    } else {
+      return throwError(ApiServiceErrorCodes.noServer);
+    }
+  }
+  public update(path: string, data: any): Observable<any> {
+    if (this.serverUrl) {
+      return this.http.put(PathHelper.joinParams(this.serverUrl, path), data);
+    } else {
+      return throwError(ApiServiceErrorCodes.noServer);
+    }
+  }
+
+  public get<T>(path: string): Observable<T> {
+    if (this.serverUrl) {
+      return this.http.get<T>(PathHelper.joinParams(this.serverUrl, path), );
     } else {
       return throwError(ApiServiceErrorCodes.noServer);
     }

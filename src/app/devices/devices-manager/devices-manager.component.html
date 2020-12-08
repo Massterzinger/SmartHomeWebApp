@@ -1,0 +1,14 @@
+<div class="w3-container w3-padding">
+  <div class="w3-card w3-margin-bottom w3-black">
+    <div class="w3-button">Add device</div>
+  </div>
+  <ul class="w3-ul w3-card">
+    <li class="w3-bar" *ngFor="let device of devices">
+      <div class="w3-bar-item">
+        <span class="w3-large">{{device.name}}</span><br>
+        <span *ngIf="device.description">{{device.description}}</span>
+      </div>
+      <span class="w3-bar-item w3-button w3-white w3-xlarge w3-right w3-ripple" (click)="deleteDevice(device.id)">×</span>
+    </li>
+  </ul>
+</div>
